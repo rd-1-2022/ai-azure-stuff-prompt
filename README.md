@@ -76,3 +76,31 @@ The response will include information about gold medalists in curling at the 202
 ```
 
 
+## Implementation
+
+The classes in Spring AI help to implement this use-case is a simple manner.
+
+The following is the implementation of the Controller method.
+
+```java
+@GetMapping("/ai/stuff")
+public Completion completion(@RequestParam(value = "message", defaultValue = "Which athletes won the gold medal in curling at the 2022 Winter Olympics?'") String message,
+                             @RequestParam(value = "stuffit", defaultValue = "false") boolean stuffit) {
+    PromptTemplate promptTemplate = new PromptTemplate(qaPromptResource);
+    Map<String, Object> map = new HashMap<>();
+    map.put("question", message);
+    if (stuffit) {
+        map.put("context", docsToStuffResource);
+    } else {
+        map.put("context", "");
+    }
+    Prompt prompt = promptTemplate.create(map);
+    AiResponse aiResponse = aiClient.generate(prompt);
+    return new Completion(aiResponse.getGeneration().getText());
+}
+```
+
+
+```java
+
+```
