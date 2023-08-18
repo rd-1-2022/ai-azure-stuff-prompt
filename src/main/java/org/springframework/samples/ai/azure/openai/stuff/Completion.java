@@ -1,4 +1,4 @@
-package org.springframework.ai.openai.samples.helloworld.stuff;
+package org.springframework.samples.ai.azure.openai.stuff;
 
 public class Completion {
 

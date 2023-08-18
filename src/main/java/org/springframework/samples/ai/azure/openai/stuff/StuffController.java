@@ -1,4 +1,4 @@
-package org.springframework.ai.openai.samples.helloworld.stuff;
+package org.springframework.samples.ai.azure.openai.stuff;
 
 import org.springframework.ai.client.AiClient;
 import org.springframework.ai.client.AiResponse;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class StuffAiController {
+public class StuffController {
 
     private final AiClient aiClient;
 
@@ -26,7 +26,7 @@ public class StuffAiController {
     private Resource qaPromptResource;
 
     @Autowired
-    public StuffAiController(AiClient aiClient) {
+    public StuffController(AiClient aiClient) {
         this.aiClient = aiClient;
     }
 
