@@ -1,23 +1,5 @@
 # Stuffing the Prompt in Generative AI Models
 
-## Prerequisite
-
-Before using the AI commands, obtain your Azure OpenAI `endpoint` and `api-key` from the Azure OpenAI Service section on [Azure Portal](https://portal.azure.com)
-
-The Spring AI project defines a configuration property named `spring.ai.openai.api-key` that you should set to the value of the `API Key` obtained from `openai.com`.
-
-Exporting an environment variables is one way to set these configuration properties.
-```shell
-export SPRING_AI_AZURE_OPENAI_API_KEY=<INSERT KEY HERE>
-export SPRING_AI_AZURE_OPENAI_ENDPOINT=<INSERT ENDPOINT URL HERE>
-```
-
-## Building and running
-
-```
-./mvnw spring-boot:run
-```
-
 ## Introduction
 
 In this exercise, you will learn about the technique known as 'stuffing the prompt' and how it can be applied to enhance generative AI models like Azure OpenAI.
@@ -35,6 +17,14 @@ There is a request parameter named `message` whose default value is
 
 ```
 Which athletes won the gold medal in curling at the 2022 Winter Olympics?
+```
+
+Look at the section below on **prerequisites** before continuing
+
+## Building and running
+
+```
+./mvnw spring-boot:run
 ```
 
 ## Initial interaction
@@ -64,7 +54,7 @@ In the `resources\docs\` directory, there's a file named `wikipedia-curling.md` 
 To stuff the prompt, send a request with the `stuffit` request parameter set to true.
 
 ```shell
-http GET localhost:8080/ai/stuff?stuffit=true
+http GET localhost:8080/ai/stuff stuffit==true
 ```
 
 The response will include information about gold medalists in curling at the 2022 Winter Olympics:
@@ -101,6 +91,15 @@ public Completion completion(@RequestParam(value = "message", defaultValue = "Wh
 ```
 
 
-```java
+## Prerequisite
 
+Before using the AI commands, obtain your Azure OpenAI `endpoint` and `api-key` from the Azure OpenAI Service section on [Azure Portal](https://portal.azure.com)
+
+The Spring AI project defines a configuration property named `spring.ai.openai.api-key` that you should set to the value of the `API Key` obtained from `openai.com`.
+
+Exporting an environment variables is one way to set these configuration properties.
+```shell
+export SPRING_AI_AZURE_OPENAI_API_KEY=<INSERT KEY HERE>
+export SPRING_AI_AZURE_OPENAI_ENDPOINT=<INSERT ENDPOINT URL HERE>
 ```
+

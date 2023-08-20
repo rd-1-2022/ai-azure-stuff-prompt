@@ -41,9 +41,9 @@ public class StuffController {
         } else {
             map.put("context", "");
         }
-		Prompt prompt = promptTemplate.create(map);
-		AiResponse aiResponse = aiClient.generate(prompt);
-		return new Completion(aiResponse.getGeneration().getText());
+        Prompt prompt = promptTemplate.create(map);
+        AiResponse aiResponse = aiClient.generate(prompt);
+        return new Completion(aiResponse.getGeneration().getText());
     }
 
 }
