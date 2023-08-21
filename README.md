@@ -93,9 +93,9 @@ public Completion completion(@RequestParam(value = "message", defaultValue = "Wh
 
 ## Prerequisite
 
-Before using the AI commands, obtain your Azure OpenAI `endpoint` and `api-key` from the Azure OpenAI Service section on [Azure Portal](https://portal.azure.com)
+Obtain your Azure OpenAI `endpoint` and `api-key` from the Azure OpenAI Service section on [Azure Portal](https://portal.azure.com)
 
-The Spring AI project defines a configuration property named `spring.ai.openai.api-key` that you should set to the value of the `API Key` obtained from `openai.com`.
+The Spring AI project defines a configuration property named `spring.ai.azure.openai.api-key` that you should set to the value of the `API Key` obtained from Azure.
 
 Exporting an environment variables is one way to set these configuration properties.
 ```shell
